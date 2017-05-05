@@ -94,7 +94,11 @@ class TasklistController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tasklist = Tasklist::find($id);
+        $tasklist->content = $request->content;
+        $tasklist->save();
+
+        return redirect('/');
     }
 
     /**
@@ -105,6 +109,9 @@ class TasklistController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tasklist = Tasklist::find($id);
+        $tasklist->delete();
+
+        return redirect('/');
     }
 }
