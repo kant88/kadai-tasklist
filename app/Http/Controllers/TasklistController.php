@@ -109,8 +109,8 @@ class TasklistController extends Controller
      */
     public function destroy($id)
     {
-        $message = Message::find($id);
-        $message->delete();
+        $tasklist = Tasklist::find($id);
+        $tasklist->delete();
 
         return redirect('/');
     }
