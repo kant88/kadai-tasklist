@@ -5,7 +5,9 @@
 
     {!! Form::model($tasklist, ['route' => ['tasklists.update', $tasklist->id], 'method' => 'put']) !!}
 
-    {!! Form::label('content', 'メッセージ:') !!}
+    {!! Form::label('status', 'ステータス:') !!}
+    {!! Form::text('status') !!}
+    {!! Form::label('content', '内容:') !!}
     {!! Form::text('content') !!}
 
     {!! Form::submit('更新') !!}
