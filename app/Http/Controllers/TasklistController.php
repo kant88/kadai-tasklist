@@ -52,6 +52,7 @@ class TasklistController extends Controller
         ]);
         $tasklist = new Tasklist;
         $tasklist->content = $request->content;
+        $tasklist->status = $request->status;
         $tasklist->save();
 
         return redirect('/');
