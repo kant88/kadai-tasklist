@@ -50,10 +50,10 @@ class TasklistController extends Controller
             'status' => 'required|max:10',
             'content' => 'required|max:255',
         ]);
-        $tasklist = new Tasklist;
-        $tasklist->content = $request->content;
-        $tasklist->status = $request->status;
-        $tasklist->save();
+        $request->user()->tasklists()->create([
+            'status' => $request->status,
+            'content' => $request->content,
+        ]);
 
         return redirect('/');
     }
@@ -120,8 +120,10 @@ class TasklistController extends Controller
     public function destroy($id)
     {
         $tasklist = Tasklist::find($id);
-        $tasklist->delete();
-
-        return redirect('/');
+        if (\Auth::user()->id === $tasklist->user_id) {
+            $tasklist->delete();
+        }
+        
+        return redirect()->back();
     }
 }
