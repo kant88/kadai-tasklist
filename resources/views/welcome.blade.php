@@ -8,10 +8,10 @@
                 {!! Form::open(['route' => 'tasklists.store']) !!}
                     <div class="form-group">
                         {!! Form::label('status', 'ステータス:') !!}
-                         {!! Form::textarea('status', old('status'), ['class' => 'form-control', 'rows' => '5']) !!}
+                        {!! Form::textarea('status', old('status'), ['class' => 'form-control', 'rows' => '5']) !!}
                     </div>
                     <div class="form-group">
-                        {!! Form::label('con', '内容:') !!}
+                        {!! Form::label('content', '内容:') !!}
                         {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '5']) !!}
                     </div>
                     {!! Form::submit('投稿', ['class' => 'btn btn-primary btn-block']) !!}
