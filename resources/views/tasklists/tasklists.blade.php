@@ -10,7 +10,8 @@
                 {!! link_to_route('users.show', $user->name, ['id' => $user->id]) !!} <span class="text-muted">posted at {{ $tasklist->created_at }}</span>
             </div>
             <div>
-                <p>{!! nl2br(e($tasklist->content)) !!}</p>
+                <p>{!! nl2br(e('status: '. $tasklist->status)) !!}</p>
+                <p>{!! nl2br(e('content: '. $tasklist->content)) !!}</p>
             </div>
             <div>
                 @if (Auth::user()->id == $tasklist->user_id)
