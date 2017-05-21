@@ -12,7 +12,6 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>{!! link_to_route('tasklists.create', '新規タスクの投稿') !!}</li>
                     @if (Auth::check())
                         <li>{!! link_to_route('users.index', 'Users') !!}</li>
                         <li class="dropdown">
@@ -26,7 +25,7 @@
                     @else
                         <ul class="nav navbar-nav navbar-right">
                             <li>{!! link_to_route('signup.get', 'Signup') !!}</li>
-                            <li><a href="#">Login</a></li>
+                            <li>{!! link_to_route('login.get', 'Login') !!}</li>
                         </ul>
                     @endif
                 </ul>
