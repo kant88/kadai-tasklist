@@ -15,6 +15,7 @@
             </div>
             <div>
                 @if (Auth::user()->id == $tasklist->user_id)
+                    {!! link_to_route('users.edit','編集', ['id' => $tasklist->id], ['class' => 'btn btn-success btn-xs']) !!}
                     {!! Form::open(['route' => ['tasklists.destroy', $tasklist->id], 'method' => 'delete']) !!}
                         {!! Form::submit('削除', ['class' => 'btn btn-danger btn-xs']) !!}
                     {!! Form::close() !!}

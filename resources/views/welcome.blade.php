@@ -16,7 +16,7 @@
                     </div>
                     {!! Form::submit('投稿', ['class' => 'btn btn-primary btn-block']) !!}
                     {!! Form::close() !!}
-            </aside>
+        </aside>
                 
             <div class="col-xs-8">
                 @if (count($tasklists) > 0)

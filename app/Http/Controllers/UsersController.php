@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\User;
+use App\Tasklist;
 
 class UsersController extends Controller
 {
@@ -34,5 +35,15 @@ class UsersController extends Controller
         
         return view('users.show', $data);
     }
+    public function edit($id)
+    {
+        $user = User::find($id);
+        $tasklist = Tasklist::find($id);
+        $data = [
+            'user' => $user,
+            'tasklist' => $tasklist,
+        ];
+        
+        return view ('users.edit', $data);
+    }
 }
-
