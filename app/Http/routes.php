@@ -23,6 +23,6 @@ Route::post('login', 'Auth\AuthController@postLogin')->name('login.post');
 Route::get('logout', 'Auth\AuthController@getLogout')->name('logout.get');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'edit']]);
-    Route::resource('tasklists', 'TasklistController', ['only' => ['store', 'destroy', 'update']]);
+    Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'edit', 'update']]);
+    Route::resource('tasklists', 'TasklistController', ['only' => ['store', 'destroy']]);
 });

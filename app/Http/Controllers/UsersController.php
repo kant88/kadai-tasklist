@@ -36,14 +36,32 @@ class UsersController extends Controller
         return view('users.show', $data);
     }
     public function edit($id)
-    {
+    {   
         $user = User::find($id);
         $tasklist = Tasklist::find($id);
+        if (\Auth::user()->id === $tasklist->user_id){
         $data = [
             'user' => $user,
             'tasklist' => $tasklist,
         ];
-        
         return view ('users.edit', $data);
+        } else {
+        return redirect()->guest(route('login.get'));
+        }
+    }
+    public function update(Request $request, $id)
+    {    
+        $tasklist = Tasklist::find($id);
+        $tasklist->status = $request->status;
+        $tasklist->content = $request->content;
+        $tasklist->save();
+       
+        if (\Auth::user()->id === $tasklist->user_id) {
+        $this->validate($request, [
+            'status' => 'required|max:10',   
+            'content' => 'required|max:255',
+        ]);
+        } 
+        return redirect('/');
     }
 }
